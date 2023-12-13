@@ -61,6 +61,12 @@ app.get("/get-data/", (req, res) => {
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/build/index.html"));
 });
+app.get("/admin", (req, res) => {
+  res.sendFile(path.join(__dirname, "/build/index.html"));
+});
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/build/index.html"));
+});
 app.post("/contact-users", (req, res) => {
   const note = new Bremos({
     name: req.body.name,
