@@ -3,6 +3,7 @@ const app = express();
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const cookieParser = require('cookie-parser')
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const { Bremos } = require("./models/ContactSchema");
@@ -21,7 +22,7 @@ mongoose.connect(process.env.mongoDB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
+app.use(cookieParser());
 app.use(
   session({
     resave: true,
