@@ -10,14 +10,11 @@ recipeFunc.get("/get-recipes", (req, res) => {
     }
   });
 });
-recipeFunc.get("/get-recipes/search/:query", (req, res) => {
-  Recipes.find({}, (err, data) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(data);
-    }
-  });
+recipeFunc.post("/search/:query", async (req, res) => {
+  const query = req.params.query;
+  console.log(query);
+  const results = await Recipes.find({});
+  res.json(results);
 });
 recipeFunc.post("/add-recipe", (req, res) => {
   const note = new Recipes({
@@ -46,7 +43,7 @@ recipeFunc.delete("/delete-recipe/:id", (req, res) => {
       console.log("Data deleted");
     })
     .catch(function (error) {
-      console.log(error);                 
+      console.log(error);
     });
 });
 recipeFunc.post("/update-blog/:id", (req, res) => {
