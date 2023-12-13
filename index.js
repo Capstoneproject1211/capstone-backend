@@ -61,6 +61,9 @@ app.get("/get-data/", (req, res) => {
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/build/index.html"));
 });
+app.get("/search", (req, res) => {
+  res.sendFile(path.join(__dirname, "/build/index.html"));
+});
 app.get("/admin/*", (req, res) => {
   res.sendFile(path.join(__dirname, "/build/index.html"));
 });
