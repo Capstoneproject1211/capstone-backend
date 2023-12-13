@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.76163d4a.css",
+    "main.js": "/static/js/main.6b658c55.js",
+    "static/media/recipe-add.png": "/static/media/recipe-add.69e65e63a1ae138c2ba5.png",
+    "static/media/blog-page.png": "/static/media/blog-page.acfc77ccf8cf59a40b2d.png",
+    "static/media/404.png": "/static/media/404.9a7167bc297328fe0b20.png",
+    "static/media/admin-dash.png": "/static/media/admin-dash.ae55e1bfc6901de7ae60.png",
+    "static/media/footer-logo.png": "/static/media/footer-logo.47162dee3bd6a5a06554.png",
+    "static/media/hero-ban.jpg": "/static/media/hero-ban.81771cc0ae798a6591cd.jpg",
+    "static/media/contact-us.png": "/static/media/contact-us.23914ebb9d9839a35219.png",
+    "static/media/header-logo.jpg": "/static/media/header-logo.6cc0175029610ac7807e.jpg",
+    "static/media/login-graphics.png": "/static/media/login-graphics.175098483305067a75fc.png",
+    "index.html": "/index.html",
+    "main.76163d4a.css.map": "/static/css/main.76163d4a.css.map",
+    "main.6b658c55.js.map": "/static/js/main.6b658c55.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.76163d4a.css",
+    "static/js/main.6b658c55.js"
+  ]
+}

@@ -3,7 +3,7 @@ const app = express();
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const cookieParser = require('cookie-parser')
+const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const { Bremos } = require("./models/ContactSchema");
@@ -58,6 +58,9 @@ app.get("/get-data/", (req, res) => {
     }
   });
 });
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "/build/index.html"));
+});
 app.post("/contact-users", (req, res) => {
   const note = new Bremos({
     name: req.body.name,
@@ -81,7 +84,7 @@ app.post("/contact-users", (req, res) => {
 });
 app.get("/get-comments/:id", (req, res) => {
   const param_id = req.params.id;
-  Comment.find({"submitted_on": param_id}, (err, data) => {
+  Comment.find({ submitted_on: param_id }, (err, data) => {
     if (err) {
       console.log(err);
     } else {
@@ -169,3 +172,6 @@ app.listen(port, () => {
 });
 
 app.use("/assets/", express.static(__dirname + "/images/"));
+app.use("/static/", express.static(__dirname + "/build/static"));
+app.use("/", express.static(__dirname + "/build/"));
+app.use("/manifest.json", express.static(__dirname + "/build/manifest.json"));
