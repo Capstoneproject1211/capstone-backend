@@ -42,6 +42,7 @@ blogFunc.delete("/delete-blog/:id", (req, res) => {
 });
 blogFunc.post("/update-blog/:id", (req, res) => {
   Blogs.findOne({ _id: req.params.id }, (err, data) => {
+            
     if (!err) {
       const note = new Blogs({
         name: req.body.name,

@@ -40,14 +40,15 @@ recipeFunc.post("/add-recipe", (req, res) => {
 recipeFunc.delete("/delete-recipe/:id", (req, res) => {
   Recipes.deleteOne({ _id: req.params.id })
     .then(function () {
-      console.log("Data deleted");
+      res.end();
     })
     .catch(function (error) {
       console.log(error);
     });
 });
-recipeFunc.post("/update-blog/:id", (req, res) => {
+recipeFunc.post("/update-recipe/:id", (req, res) => {
   Recipes.findOne({ _id: req.params.id }, (err, data) => {
+    console.log(req.params.id);
     if (!err) {
       const note = new Recipes({
         title: req.body.title,
