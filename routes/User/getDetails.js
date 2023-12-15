@@ -8,7 +8,7 @@ getDetails.get("/getDetails", (req, res) => {
     function (err, user) {
       if (err) console.log(err);
 
-      const { first_name, last_name, role, email, allergy_info, password } =
+      const { first_name, last_name, role, email, allergy_info, password ,image} =
         user;
       res.status(200).send({
         first_name,
@@ -17,6 +17,7 @@ getDetails.get("/getDetails", (req, res) => {
         email,
         allergy_info,
         password,
+        image,
       });
     }
   );
@@ -32,6 +33,7 @@ getDetails.post("/setDetails", (req, res) => {
         password: req.body.password,
         first_name: req.body.first_name,
         last_name: req.body.last_name,
+        image: req.body.image,
         allergy_info: req.body.allergy_info,
       });
       user.remove();
