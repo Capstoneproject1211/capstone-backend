@@ -10,6 +10,7 @@ const UserSchema = new Schema(
     password: String,
     first_name: String,
     last_name: String,
+    allergy_info: String
   },
   {
     collection: "users",

@@ -73,6 +73,9 @@ app.get("/blog-landing/*", (req, res) => {
 app.get("/recipe-landing/*", (req, res) => {
   res.sendFile(path.join(__dirname, "/build/index.html"));
 });
+app.get("/user/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/build/index.html"));
+});
 app.post("/contact-users", (req, res) => {
   const note = new Bremos({
     name: req.body.name,
