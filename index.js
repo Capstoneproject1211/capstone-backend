@@ -9,6 +9,7 @@ const MongoStore = require("connect-mongo")(session);
 const { Bremos } = require("./models/ContactSchema");
 const { Comment } = require("./models/Comments");
 const { RecipeComment } = require("./models/RecipeComments");
+const { RecipeRate } = require("./models/RecipeRate");
 const passport = require("./Auth");
 const path = require("path");
 const bodyParser = require("body-parser");
@@ -184,6 +185,34 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.clear();
   console.log(`Central Recipe Generator listening on port ${port}!`);
+});
+app.get("/get-recipe-rating/:id", (req, res) => {
+  const param_id = req.params.id;
+  RecipeRate.find({ submitted_on: param_id }, (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(data);
+    }
+  });
+});
+app.post("/store-recipe-ratings", (req, res) => {
+  console.log(req.body);
+  const note = new RecipeRate({
+    submitted_on: req.body.submitted_on,
+    rating: req.body.rating,
+    timeStamp: new Date(),
+  });
+  note
+    .save()
+    .then((item) => {
+      res.send(
+        "Your Query has Reached us Sucessfully , We'll get back to you Soon. "
+      );
+    })
+    .catch((err) => {
+      res.send(err);
+    });
 });
 
 app.use("/assets/", express.static(__dirname + "/images/"));

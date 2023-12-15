@@ -9,7 +9,7 @@ recipeFunc.get("/get-recipes", (req, res) => {
       res.send(data);
     }
   });
-});
+});   
 recipeFunc.post("/add-recipe", (req, res) => {
   const note = new Recipes({
     title: req.body.title,
