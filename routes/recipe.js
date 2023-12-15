@@ -10,12 +10,6 @@ recipeFunc.get("/get-recipes", (req, res) => {
     }
   });
 });
-recipeFunc.post("/search/:query", async (req, res) => {
-  const query = req.params.query;
-  console.log(query);
-  const results = await Recipes.find({});
-  res.json(results);
-});
 recipeFunc.post("/add-recipe", (req, res) => {
   const note = new Recipes({
     title: req.body.title,
